@@ -7,9 +7,26 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: url('./images/background.jpg');
+  max-width: 100vw;
+  background-attachment: fixed;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+header.card-panel {
+  background-image: url('./images/background2.jpg');
+  background-size: cover;
+}
+
+#drum-pad_wrapper {
+  background-image: url('./images/background3.jpg');
+  background-size: cover;
+}
+
+#display {
+  background-image: url('./images/background4.png');
+  background-size: cover;
 }

@@ -5,7 +5,7 @@ const Display = props => {
     <div id="display" className="card grey lighten-3">
       <div className="card-content">
         <div className="card-title">
-          <pre className="center green lighten-4">{props.text}</pre>
+          <pre className="card-panel center yellow accent-1">{props.text}</pre>
         </div>
       </div>
     </div>

@@ -31,8 +31,8 @@ class App extends Component {
     return (
       <div id="drum-machine" className="container">
         <Header title={this.state.title} logo={logo} />
-        <Display text={this.state.displayText} />
         <DrumPad handleClick={this.handleClick} playSound={this.playSound} />
+        <Display text={this.state.displayText} />
       </div>
     );
   }

@@ -10,10 +10,10 @@ import news from "../audio/news.wav";
 import balls from "../audio/balls.mp3";
 
 const q = "Retarded";
-const w = "Wubba Lubbu Dub Dub";
+const w = "Wubba";
 const e = "IDGAF";
 const a = "Aids!";
-const s = "Scwifty";
+const s = "Schwifty";
 const d = "Dream";
 const z = "Moonmen";
 const x = "News";
@@ -113,48 +113,34 @@ class DrumPad extends Component {
 
     const wrapperStyle = {
       display: "flex",
-      flexFlow: "row wrap",
-      justifyContent: "center"
+      flexFlow: "row wrap"
     };
 
     const buttonStyle = {
-      margin: "1em"
+      margin: "1em",
+      color: "black"
     };
 
     return (
-      <div className="card grey lighten-3">
+      <div
+      id="drum-pad_wrapper" className="card grey lighten-3">
         <div
-          id="drum-pad_wrapper"
           style={wrapperStyle}
           className="card-content"
         >
           {this.state.drums.map((drum, index) => {
             return (
-              <div id={`${drum.id}_player`} key={index}>
+              <div id={`${drum.id}_player`} key={index} style={{position: "relative"}} >
                 <button
                   onClick={e => {
                     e.preventDefault();
                     this.props.handleClick(drum.id);
                   }}
                   style={buttonStyle}
-                  className="center drum-pad btn-large waves-effect waves-light blue lighten-3"
+                  className="center drum-pad btn-large waves-effect waves-light yellow accent-1"
                 >
-                  {drum.id}
+                  {drum.id} <small style={!navigator.maxTouchPoints > 0 ? {position: "relative", top: "12px", right: "-12px", zIndex: "10"} : {display: "none"}} className="badge" >{drum.key}</small>
                 </button>
-                <span
-                  style={{
-                    display: "inline",
-                    padding: "0",
-                    margin: "0",
-                    position: "relative",
-                    top: "50px",
-                    right: "50px",
-                    zIndex: "10"
-                  }}
-                  className="badge"
-                >
-                  {drum.key}
-                </span>
                 <audio
                   display="hidden"
                   type="audio/wav"
