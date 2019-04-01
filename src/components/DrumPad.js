@@ -1,79 +1,134 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+
+const a = "A";
+const s = "S";
+const d = "D";
+const f = "F";
+const j = "J";
+const k = "K";
+const l = "L";
+const semicolon = ";";
+const space = "Space";
 
 class DrumPad extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            active: null,
-            drums: [
-                {
-                    id: "A",
-                    key_code: 65,
-                    audio: null
-                },
-                {
-                    id: "S",
-                    key_code: 83,
-                    audio: null
-                },
-                {
-                    id: "D",
-                    key_code: 68,
-                    audio: null
-                },
-                {
-                    id: "F",
-                    key_code: 70,
-                    audio: null
-                },
-                {
-                    id: "J",
-                    key_code: 74,
-                    audio: null
-                },
-                {
-                    id: "K",
-                    key_code: 75,
-                    audio: null
-                },
-                {
-                    id: "L",
-                    key_code: 76,
-                    audio: null
-                },
-                {
-                    id: ";",
-                    key_code: 186,
-                    audio: null
-                },
-                {
-                    id: "Space",
-                    key_code: 32,
-                    audio: null
-                }
-            ]
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: null,
+      drums: [
+        {
+          id: a,
+          audio: null
+        },
+        {
+          id: s,
+          audio: null
+        },
+        {
+          id: d,
+          audio: null
+        },
+        {
+          id: f,
+          audio: null
+        },
+        {
+          id: j,
+          audio: null
+        },
+        {
+          id: k,
+          audio: null
+        },
+        {
+          id: l,
+          audio: null
+        },
+        {
+          id: semicolon,
+          audio: null
+        },
+        {
+          id: space,
+          audio: null
         }
-    }
+      ]
+    };
+  }
 
-    render() { 
+  render(props = this.props) {
+    document.onkeydown = function(e) {
+      const key_code = e.keyCode;
+      switch (key_code) {
+        case 65:
+          props.handleClick(a);
+          break;
+        case 83:
+          props.handleClick(s);
+          break;
+        case 68:
+          props.handleClick(d);
+          break;
+        case 70:
+          props.handleClick(f);
+          break;
+        case 74:
+          props.handleClick(j);
+          break;
+        case 75:
+          props.handleClick(k);
+          break;
+        case 76:
+          props.handleClick(l);
+          break;
+        case 186:
+          props.handleClick(semicolon);
+          break;
+        case 32:
+          props.handleClick(space);
+          break;
+        default:
+          console.log(key_code);
+          return;
+      }
+    };
 
-        const wrapperStyle = {
-            display: "flex",
-            justifyContent: "center"
-        }
+    const wrapperStyle = {
+      display: "flex",
+      justifyContent: "center"
+    };
 
-        const buttonStyle = {
-            margin: "0 12px"
-        }
+    const buttonStyle = {
+      margin: "0 12px"
+    };
 
-        return ( <div className="card grey lighten-3">
-            <div id="drum-pad_wrapper" style={wrapperStyle} className="card-content">
-                {this.state.drums.map(drum => {return (
-                    <button style={buttonStyle} className="btn-floating btn-large waves-effect waves-light blue lighten-3">{drum.id}</button>
-                ) })}
-            </div>
-        </div> );
-    }
+    return (
+      <div className="card grey lighten-3">
+        <div
+          id="drum-pad_wrapper"
+          style={wrapperStyle}
+          className="card-content"
+        >
+          {this.state.drums.map((drum, index) => {
+            return (
+              <button
+                id={drum.id}
+                key={index}
+                onClick={e => {
+                  e.preventDefault();
+                  this.props.handleClick(e.target.id);
+                }}
+                style={buttonStyle}
+                className="drum-pad btn-floating btn-large waves-effect waves-light blue lighten-3"
+              >
+                {drum.id}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
 }
- 
+
 export default DrumPad;

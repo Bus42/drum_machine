@@ -13,12 +13,17 @@ class App extends Component {
       displayText: "Test text"
     };
   }
+
+  handleClick = (e) => {
+    console.log(e)
+  }
+
   render() {
     return (
       <div id="drum-machine" className="container">
         <Header title={this.state.title} logo={logo} />
         <Display text={this.state.displayText} />
-        <DrumPad />
+        <DrumPad handleClick={this.handleClick} />
       </div>
     );
   }
