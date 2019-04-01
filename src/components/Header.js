@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = props => {
   return (
-    <header className="card-panel">
+    <header className="card-panel grey lighten-3">
       <h4>
         <img
           src={props.logo}
