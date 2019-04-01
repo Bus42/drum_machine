@@ -1,4 +1,13 @@
 import React, { Component } from "react";
+import schwifty from '../audio/schwifty.wav';
+import aids from '../audio/aids.wav';
+import retarded from '../audio/retarded.wav';
+import wldd from '../audio/wldd.wav';
+import idgaf from '../audio/idgaf.wav';
+import dream from '../audio/dream.wav';
+import ggschwifty from '../audio/ggschwifty.mp3';
+import news from '../audio/news.wav';
+import balls from '../audio/balls.mp3';
 
 const q = "Q";
 const w = "W";
@@ -18,39 +27,39 @@ class DrumPad extends Component {
       drums: [
         {
           id: q,
-          audio: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+          audio: retarded
         },
         {
           id: w,
-          audio: "https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"
+          audio: wldd
         },
         {
           id: e,
-          audio: "https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"
+          audio: idgaf
         },
         {
           id: a,
-          audio: "https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"
+          audio: aids
         },
         {
           id: s,
-          audio: "https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"
+          audio: schwifty
         },
         {
           id: d,
-          audio: "https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"
+          audio: dream
         },
         {
           id: z,
-          audio: "https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3"
+          audio: ggschwifty
         },
         {
           id: x,
-          audio: "https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"
+          audio: news
         },
         {
           id: c,
-          audio: "https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"
+          audio: balls
         }
       ]
     };
@@ -122,7 +131,7 @@ class DrumPad extends Component {
                 className="drum-pad btn-floating btn-large waves-effect waves-light blue lighten-3"
               >
                 {drum.id}
-                <audio className="clip" id={drum.id} src={drum.audio} />
+                <audio type="audio/wav" className="clip" id={drum.id} src={drum.audio} />
               </button>
             );
           })}

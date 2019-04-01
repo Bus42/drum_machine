@@ -21,6 +21,9 @@ class App extends Component {
 
   playSound = sound => {
     const clip = document.getElementById(sound);
+    if (!clip.ended){
+      clip.currentTime = 0;
+    }
     clip.play();
   };
 
