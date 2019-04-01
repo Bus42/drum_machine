@@ -14,16 +14,23 @@ class App extends Component {
     };
   }
 
-  handleClick = (e) => {
-    console.log(e)
-  }
+  handleClick = e => {
+    const displayText = e;
+    this.setState({ displayText });
+  };
+
+  playSound = sound => {
+    const clip = document.getElementById(sound);
+    clip.play();
+    console.log(clip)
+  };
 
   render() {
     return (
       <div id="drum-machine" className="container">
         <Header title={this.state.title} logo={logo} />
         <Display text={this.state.displayText} />
-        <DrumPad handleClick={this.handleClick} />
+        <DrumPad handleClick={this.handleClick} playSound={this.playSound} />
       </div>
     );
   }
