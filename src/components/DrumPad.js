@@ -62,39 +62,30 @@ class DrumPad extends Component {
       switch (key_code) {
         case 81:
           props.handleClick(q);
-          props.playSound(`${q}_audio`);
           break;
         case 87:
           props.handleClick(w);
-          props.playSound(`${w}_audio`);
           break;
         case 69:
           props.handleClick(e);
-          props.playSound(`${e}_audio`);
           break;
         case 65:
           props.handleClick(a);
-          props.playSound(`${a}_audio`);
           break;
         case 83:
           props.handleClick(s);
-          props.playSound(`${s}_audio`);
           break;
         case 68:
           props.handleClick(d);
-          props.playSound(`${d}_audio`);
           break;
         case 90:
           props.handleClick(z);
-          props.playSound(`${z}_audio`);
           break;
         case 88:
           props.handleClick(x);
-          props.playSound(`${x}_audio`);
           break;
         case 67:
           props.handleClick(c);
-          props.playSound(`${c}_audio`);
           break;
         default:
           console.log(key_code);
@@ -121,18 +112,17 @@ class DrumPad extends Component {
           {this.state.drums.map((drum, index) => {
             return (
               <button
-                id={drum.id}
+                id={`${drum.id}_player`}
                 key={index}
                 onClick={e => {
                   e.preventDefault();
-                  this.props.handleClick(e.target.id);
-                  this.props.playSound(`${drum.id}_audio`);
+                  this.props.handleClick(drum.id);
                 }}
                 style={buttonStyle}
                 className="drum-pad btn-floating btn-large waves-effect waves-light blue lighten-3"
               >
                 {drum.id}
-                <audio id={`${drum.id}_audio`} src={drum.audio} />
+                <audio className="clip" id={drum.id} src={drum.audio} />
               </button>
             );
           })}

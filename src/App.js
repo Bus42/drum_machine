@@ -15,14 +15,13 @@ class App extends Component {
   }
 
   handleClick = e => {
-    const displayText = e;
-    this.setState({ displayText });
+    this.playSound(e);
+    this.setState({displayText: e})
   };
 
   playSound = sound => {
     const clip = document.getElementById(sound);
     clip.play();
-    console.log(clip)
   };
 
   render() {
