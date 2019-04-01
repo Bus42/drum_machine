@@ -1,23 +1,23 @@
 import React, { Component } from "react";
-import schwifty from '../audio/schwifty.wav';
-import aids from '../audio/aids.wav';
-import retarded from '../audio/retarded.wav';
-import wldd from '../audio/wldd.wav';
-import idgaf from '../audio/idgaf.wav';
-import dream from '../audio/dream.wav';
-import ggschwifty from '../audio/ggschwifty.mp3';
-import news from '../audio/news.wav';
-import balls from '../audio/balls.mp3';
+import schwifty from "../audio/schwifty.wav";
+import aids from "../audio/aids.wav";
+import retarded from "../audio/retarded.wav";
+import wldd from "../audio/wldd.wav";
+import idgaf from "../audio/idgaf.wav";
+import dream from "../audio/dream.wav";
+import moonmen from "../audio/moonmen.wav";
+import news from "../audio/news.wav";
+import balls from "../audio/balls.mp3";
 
-const q = "Q";
-const w = "W";
-const e = "E";
-const a = "A";
-const s = "S";
-const d = "D";
-const z = "Z";
-const x = "X";
-const c = "C";
+const q = "Retarded";
+const w = "Wubba Lubbu Dub Dub";
+const e = "IDGAF";
+const a = "Aids!";
+const s = "Scwifty";
+const d = "Dream";
+const z = "Moonmen";
+const x = "News";
+const c = "Balls";
 
 class DrumPad extends Component {
   constructor(props) {
@@ -27,38 +27,47 @@ class DrumPad extends Component {
       drums: [
         {
           id: q,
+          key: "Q",
           audio: retarded
         },
         {
           id: w,
+          key: "W",
           audio: wldd
         },
         {
           id: e,
+          key: "E",
           audio: idgaf
         },
         {
           id: a,
+          key: "A",
           audio: aids
         },
         {
           id: s,
+          key: "S",
           audio: schwifty
         },
         {
           id: d,
+          key: "D",
           audio: dream
         },
         {
           id: z,
-          audio: ggschwifty
+          key: "Z",
+          audio: moonmen
         },
         {
           id: x,
+          key: "X",
           audio: news
         },
         {
           id: c,
+          key: "C",
           audio: balls
         }
       ]
@@ -104,11 +113,12 @@ class DrumPad extends Component {
 
     const wrapperStyle = {
       display: "flex",
+      flexFlow: "row wrap",
       justifyContent: "center"
     };
 
     const buttonStyle = {
-      margin: "0 12px"
+      margin: "1em"
     };
 
     return (
@@ -120,19 +130,39 @@ class DrumPad extends Component {
         >
           {this.state.drums.map((drum, index) => {
             return (
-              <button
-                id={`${drum.id}_player`}
-                key={index}
-                onClick={e => {
-                  e.preventDefault();
-                  this.props.handleClick(drum.id);
-                }}
-                style={buttonStyle}
-                className="drum-pad btn-floating btn-large waves-effect waves-light blue lighten-3"
-              >
-                {drum.id}
-                <audio type="audio/wav" className="clip" id={drum.id} src={drum.audio} />
-              </button>
+              <div id={`${drum.id}_player`} key={index}>
+                <button
+                  onClick={e => {
+                    e.preventDefault();
+                    this.props.handleClick(drum.id);
+                  }}
+                  style={buttonStyle}
+                  className="center drum-pad btn-large waves-effect waves-light blue lighten-3"
+                >
+                  {drum.id}
+                </button>
+                <span
+                  style={{
+                    display: "inline",
+                    padding: "0",
+                    margin: "0",
+                    position: "relative",
+                    top: "50px",
+                    right: "50px",
+                    zIndex: "10"
+                  }}
+                  className="badge"
+                >
+                  {drum.key}
+                </span>
+                <audio
+                  display="hidden"
+                  type="audio/wav"
+                  className="clip"
+                  id={drum.id}
+                  src={drum.audio}
+                />
+              </div>
             );
           })}
         </div>

@@ -7,7 +7,7 @@ const Header = props => {
         <img
           src={props.logo}
           className="circle responsive-img App-logo"
-          style={{ width: "80px" }}
+          style={{ width: "120px" }}
           alt="React logo"
         />
         <span>{props.title}</span>
