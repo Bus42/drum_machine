@@ -27,12 +27,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bus42/freeCodeCamp-drum_machine.git"
+    "url": "git+https://github.com/Bus42/freeCodeCamp/drum_machine.git"
   },
   "author": "Greg Brewton",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Bus42/freeCodeCamp-drum_machine/issues"
+    "url": "https://github.com/Bus42/freeCodeCamp/drum_machine/issues"
   },
-  "homepage": "https://github.com/Bus42/freeCodeCamp-drum_machine#readme"
+  "homepage": "https://github.com/Bus42/freeCodeCamp/drum_machine#readme"
 }
