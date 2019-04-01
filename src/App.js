@@ -16,12 +16,12 @@ class App extends Component {
 
   handleClick = e => {
     this.playSound(e);
-    this.setState({displayText: e})
+    this.setState({ displayText: e });
   };
 
   playSound = sound => {
     const clip = document.getElementById(sound);
-    if (!clip.ended){
+    if (!clip.ended) {
       clip.currentTime = 0;
     }
     clip.play();
@@ -29,7 +29,16 @@ class App extends Component {
 
   render() {
     return (
-      <div id="drum-machine" className="container">
+      <div
+        style={{
+          display: "flex",
+          flexFlow: "column nowrap",
+          justifyContent: "space-evenly",
+          minHeight: "100vh"
+        }}
+        id="drum-machine"
+        className="container"
+      >
         <Header title={this.state.title} logo={logo} />
         <DrumPad handleClick={this.handleClick} playSound={this.playSound} />
         <Display text={this.state.displayText} />

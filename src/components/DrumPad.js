@@ -147,6 +147,7 @@ class DrumPad extends Component {
                   className="clip"
                   id={drum.id}
                   src={drum.audio}
+                  preload
                 />
               </div>
             );
