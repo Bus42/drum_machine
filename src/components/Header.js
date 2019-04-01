@@ -6,7 +6,7 @@ const Header = props => {
       <h4>
         <img
           src={props.logo}
-          className="circle responsive-img"
+          className="circle responsive-img App-logo"
           style={{ width: "80px" }}
           alt="React logo"
         />
